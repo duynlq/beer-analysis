@@ -1,18 +1,18 @@
-![banner](assets/Credit_card_approval_banner.png)
+![banner](images/beer_analysis.png)
 
-
-![Tools](https://img.shields.io/badge/Tools-R%20Python-lightgrey)
-![GitHub last commit](https://img.shields.io/github/last-commit/tiddles585/Capstone)
-![GitHub repo size](https://img.shields.io/github/repo-size/tiddles585/Capstone)
-![Methods](https://img.shields.io/badge/Methods-ARIMA%20ES%20Theta%20LSTM%20MLP%20DeepAR-red)
+![Tools](https://img.shields.io/badge/Tools-R-lightgrey)
+![Methods](https://img.shields.io/badge/Methods-KNN-red)
+![GitHub last commit](https://img.shields.io/github/last-commit/duynlq/beer-analysis)
+![GitHub repo size](https://img.shields.io/github/repo-size/duynlq/beer-analysis)
 
 Badge [source](https://shields.io/)
 
-# Key findings: Ensembling forecasts with multiple statistical and deep learning models using median or mean schemes leads to better performance across all forecasting horizons.
+# Key findings: Since the most produced beer style is India Pale Ale (IPA), and 9 out of the top 10 most produced beer styles are Ales, .
+# TODO
+- iron out meaning of existing KNN analysis while finding feature importances of top 10 features using R
+- load beers.csv and breweries.csv into MySQL and visualize using Tableau Public
 
-## Authors
-
-- [@tiddles585](https://github.com/tiddles585)
+## Author
 - [@duynlq](https://github.com/duynlq)
 
 ## Table of Contents
@@ -22,42 +22,37 @@ Badge [source](https://shields.io/)
   - [Methods](#methods)
   - [Tech Stack](#tech-stack)
   - [Quick glance at the results](#quick-glance-at-the-results)
-  - [Lessons learned and recommendation](#lessons-learned-and-recommendation)
   - [Limitation and what can be improved](#limitation-and-what-can-be-improved)
-  - [Run Locally](#run-locally)
-  - [Explore the notebook](#explore-the-notebook)
-  - [Deployment on streamlit](#deployment-on-streamlit)
-  - [App deployed on Streamlit](#app-deployed-on-streamlit)
-  - [Repository structure](#repository-structure)
-  - [Contribution](#contribution)
-  - [Blog post](#blog-post)
-  - [Project featuring](#project-featuring)
-  - [License](#license)
+  - [Repository Structure](#repository-structure)
 
+## Problem Statement
 
+Statistical forecasting models can be useful for capturing linear relationships in time series realizations; however, they often rely on certain distribution assumptions and struggle to capture more complex relationships in the time series data. Additionally, statistical models are known to be sensitive to outliers which produce forecasts that may misrepresent the data. 
 
+Deep learning models, on the other hand, can handle difficult pre-modeling problems such as multiple seasonal components, missing data, and non-linear trends; however they require more computational power, more time and resources put into tuning, as well as higher understanding of the data in order to execute them properly.  
 
-## Business Problem
-
-This app predicts if an applicant will be approved for a credit card or not. Each time there is a hard enquiry your credit score is affected negatively. This app predict the probability of being approved without affecting your credit score. This app can be used by applicant who wants to find out if they will be approved for a credit card without affecting their credit score.
+By using ensembles that combine the satisfactory forecasts of multiple models, the forecasting accuracy can be improved even further. This research aims to ensemble various high-performing statistical and deep learning models to potentially achieve greater forecasting ability.
 
 ## Data Source
 
-- [Kaggle credit card approval prediction](https://www.kaggle.com/rikdifos/credit-card-approval-prediction)
+- [American Craft Beers](https://forecasters.org/resources/time-series-data/m3-competition/](https://www.kaggle.com/datasets/nickhould/craft-cans))
 
 ## Methods
 
-- Exploratory data analysis
-- Bivariate analysis
-- Multivariate correlation
-- S3 bucket model hosting
-- Model deployment
+- ARIMA (differencing all realizations)
+- ARIMA (differencing via Cochrane–Orcutt estimation)
+- Holt-Winter's Additive
+- Holt-Winter's Multiplicative
+- [Theta](https://www.sciencedirect.com/science/article/abs/pii/S0169207000000662)
+- [CES](https://onlinelibrary.wiley.com/doi/full/10.1002/nav.22074) (complex exponential smoothing)
+- [ES](https://www.sciencedirect.com/science/article/abs/pii/S0169207001001108) (exponential smoothing state space model)
+- [MLP](https://kourentzes.com/forecasting/2019/01/16/tutorial-for-the-nnfor-r-package/)
+- [DeepAR](https://www.sciencedirect.com/science/article/pii/S0169207019301888)
+- [LSTM](https://doi.org/10.1162/neco.1997.9.8.1735)
+  
 ## Tech Stack
-
-- Python (refer to requirement.txt for the packages used in this project)
-- Streamlit (interface for the model)
-- AWS S3 (model storage)
-
+- R (refer to [here](https://github.com/tiddles585/Capstone/blob/duy_branch/R/Functions.R) for the libraries used)
+- Python (used to implement LSTM and DeepAR)
 
 ## Quick glance at the results
 
@@ -109,77 +104,7 @@ Top 3 models (with default parameters)
 - Better interpretation of the chi-square test
 - Retrain the model without the least predictive features
 
-
-
-## Run Locally
-Initialize git
-
-```bash
-git init
-```
-
-
-Clone the project
-
-```bash
-git clone https://github.com/semasuka/Credit-card-approval-prediction-classification.git
-```
-
-enter the project directory
-
-```bash
-cd Credit-card-approval-prediction-classification
-```
-
-Create a conda virtual environment and install all the packages from the environment.yml (recommended)
-
-```bash
-conda env create --prefix <env_name> --file assets/environment.yml
-```
-
-Activate the conda environment
-
-```bash
-conda activate <env_name>
-```
-
-List all the packages installed
-
-```bash
-conda list
-```
-
-Start the streamlit server locally
-
-```bash
-streamlit run cc_approval_pred.py
-```
-If you are having issue with streamlit, please follow [this tutorial on how to set up streamlit](https://docs.streamlit.io/library/get-started/installation)
-
-## Explore the notebook
-
-To explore the notebook file [here](https://nbviewer.org/github/semasuka/Credit-card-approval-prediction-classification/blob/main/Credit_card_approval_prediction.ipynb)
-
-## Deployment on streamlit
-
-To deploy this project on streamlit share, follow these steps:
-
-- first, make sure you upload your files on Github, including a requirements.txt file
-- go to [streamlit share](https://share.streamlit.io/)
-- login with Github, Google, etc.
-- click on new app button
-- select the Github repo name, branch, python file with the streamlit codes
-- click advanced settings, select python version 3.9 and add the secret keys if your model is stored on AWS or GCP bucket
-- then save and deploy!
-
-## App deployed on Streamlit
-
-![Streamlit GIF](assets/gif_streamlit.gif)
-
-Video to gif [tool](https://ezgif.com/)
-## Repository structure
-
-
+## Repository Structure
 ```
 
 ├── assets
@@ -219,43 +144,3 @@ Video to gif [tool](https://ezgif.com/)
 ├── requirements.txt                              <- list of all the dependencies with their versions(used for Streamlit).
 
 ```
-## Contribution
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change or contribute.
-
-## Blog post
-
-The accompanying blog post for this project can be found [here](https://semasuka.github.io/blog/2022/10/12/credit-card-approval-prediction.html)
-
-## Project featuring
-
-This project was featured on [Luke Barousse Youtube Channel](https://www.youtube.com/c/LukeBarousse), Click on the thumbnail to watch the video
-
-[![IMAGE_ALT](https://img.youtube.com/vi/5Q0gB7imNOo/0.jpg)](https://www.youtube.com/watch?v=5Q0gB7imNOo&t=222s)
-
-
-## License
-
-MIT License
-
-Copyright (c) 2022 Stern Semasuka
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Learn more about [MIT](https://choosealicense.com/licenses/mit/) license
