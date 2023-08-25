@@ -11,6 +11,7 @@ Badge [source](https://shields.io/)
 # TODO
 - iron out meaning of existing KNN analysis while finding feature importances of top 10 features using R
 - load beers.csv and breweries.csv into MySQL and visualize using Tableau Public
+- update this project in resume
 
 ## Author
 - [@duynlq](https://github.com/duynlq)
