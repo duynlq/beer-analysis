@@ -28,7 +28,7 @@ Badge [source](https://shields.io/)
 
 ## Problem Statement
 
-This app predicts if a taste profile will classify as either the craft beer styles "Ale" or "IPA". Breweries can increase their profit margins by tailoring to their customer's preferences. Breweries tend to give out samples of beers with descriptions of their ABV (Alcohol By Volume) and IBU (International Bitterness Unit), as well as their tasting profiles such as fruity, sweet, tart, nutty or chocolately. For craft beer enthusiasts and new bar-goers alike, sticking to a new favorite beer can be a challenging task. This app allows a brewery to predict the best style of beer for a customer without spending too much on experiential marketing.
+This app predicts if a taste profile will classify as either the craft beer styles "Ale" or "IPA". Breweries can increase their profit margins by tailoring to their customer's preferences. Breweries tend to give out samples of beers with descriptions of their ABV (Alcohol By Volume) and IBU (International Bitterness Unit), as well as their tasting profiles such as fruity, sweet, tart, nutty or chocolately. For craft beer enthusiasts and new bar-goers alike, sticking to a new favorite beer can be a challenging task. This app allows a brewery to predict the best style of beer for a customer without spending too much on samples.
 
 ## Data Source
 
