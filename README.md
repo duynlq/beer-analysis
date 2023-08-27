@@ -7,7 +7,7 @@
 
 Badge [source](https://shields.io/)
 
-# Key findings: Since the most produced beer style is India Pale Ale (IPA), and 9 out of the top 10 most produced beer styles are Ales, .
+# Key findings: For breweries and beer enthusiasts focusing on Ale and IPA styles, this simple KNN model offers a valuable tool for suggesting beers that match an individual's preferences, or for breweries to tailor their offerings to a discerning audience.
 # TODO
 - iron out meaning of existing KNN analysis while finding feature importances of top 10 features using R
 - load beers.csv and breweries.csv into MySQL and visualize using Tableau Public
