@@ -1,0 +1,8 @@
+install.packages("tidyverse")
+install.packages("GGally")
+install.packages("class")
+install.packages("caret")
+install.packages("ggpubr")
+install.packages("usmap")
+install.packages("gtrendsR")
+install.packages("lessR")
