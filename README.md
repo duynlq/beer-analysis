@@ -7,7 +7,7 @@
 
 Badge [source](https://shields.io/)
 
-# Key findings: For breweries and beer enthusiasts focusing on Ale and IPA styles, this simple KNN model offers a valuable tool for suggesting beers that match an individual's preferences, or for breweries to tailor their offerings to a discerning audience.
+# Key findings: Out of the US top 5 most crafted beer styles, three are labeled as Ale, and two are labeled as India Pale Ale (IPA). For breweries and beer enthusiasts focusing on Ale and IPA styles, this simple KNN model offers a valuable tool for suggesting beers that match an individual's preferences, or for breweries to tailor their offerings to a discerning audience.
 # TODO
 - iron out meaning of existing KNN analysis while finding feature importances of top 10 features using R
 - load beers.csv and breweries.csv into MySQL and visualize using Tableau Public
@@ -18,7 +18,7 @@ Badge [source](https://shields.io/)
 
 ## Table of Contents
 
-  - [Business Problem](#business-problem)
+  - [Problem Statement](#problem-statement)
   - [Data Source](#data-source)
   - [Methods](#methods)
   - [Tech Stack](#tech-stack)
@@ -28,11 +28,7 @@ Badge [source](https://shields.io/)
 
 ## Problem Statement
 
-Statistical forecasting models can be useful for capturing linear relationships in time series realizations; however, they often rely on certain distribution assumptions and struggle to capture more complex relationships in the time series data. Additionally, statistical models are known to be sensitive to outliers which produce forecasts that may misrepresent the data. 
-
-Deep learning models, on the other hand, can handle difficult pre-modeling problems such as multiple seasonal components, missing data, and non-linear trends; however they require more computational power, more time and resources put into tuning, as well as higher understanding of the data in order to execute them properly.  
-
-By using ensembles that combine the satisfactory forecasts of multiple models, the forecasting accuracy can be improved even further. This research aims to ensemble various high-performing statistical and deep learning models to potentially achieve greater forecasting ability.
+This app predicts if a taste profile will classify as either the craft beer styles "Ale" or "IPA". Breweries can increase their profit margins by tailoring to their customer's preferences. Breweries tend to give out samples of beers with descriptions of their ABV (Alcohol By Volume) and IBU (International Bitterness Unit), as well as their tasting profiles such as fruity, sweet, tart, nutty or chocolately. For craft beer enthusiasts and new bar-goers alike, sticking to a new favorite beer can be a challenging task. This app allows a brewery to predict the best style of beer for a customer without spending too much on experiential marketing.
 
 ## Data Source
 
